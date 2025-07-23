@@ -14,20 +14,29 @@ function updateDisplay(verse) {
     console.log("Verse from inside the function: " + verse);
 
 // STEP 4: Declare and initialize URL to point to text file(s)
-let url = 
+let url = `https://aubacity.github.io/lesson-11/${verse}.txt`;
+console.log(url);
 // STEP 5: Build fetch() with promises
 // STEP 5a: Use fetch and pass in the URL
-
+fetch(url)
 // STEP 5b: The fetch() will return a promise - which when received from the server, the promise's then() event handler is called using the response
-
+    .then((response) => {
+        console.log(response);
 // STEP 5c: If the response is not okay, throw an error containing the HTTP status
-
+        if (!responce.ok) {
+            throw new Error("Error Occured!");
+        }
 // STEP 5d: If the response is okay, the handler fetches the response and returns it as text with response.text()
-
+        return response.text();
+    })
 // STEP 5e: Once response.text() has returned a value, the then() handler can pass in the text string to the textContent property of the poemDisplay element
-
+    .then((text) => {
+        pre.textContent = text;
+    })
 // STEP 5f: Finish the chain with a catch() to grab any errors that may have been thrown by the promise, and display them on the page
-
+    .catch((error) => {
+        pre.textContent = error;
+    });
 }
 // STEP 6: Initialize the app with Verse 1
 
