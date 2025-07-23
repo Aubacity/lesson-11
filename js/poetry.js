@@ -12,9 +12,9 @@ verseChoose.addEventListener("change", function() {
 // STEP 3: Construct updateDisplay() function
 function updateDisplay(verse) {
     console.log("Verse from inside the function: " + verse);
-    
-// STEP 4: Declare and initialize URL to point to text file(s)
 
+// STEP 4: Declare and initialize URL to point to text file(s)
+let url = 
 // STEP 5: Build fetch() with promises
 // STEP 5a: Use fetch and pass in the URL
 
